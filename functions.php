@@ -15,7 +15,7 @@ register_nav_menus( array(
 ) );
 
 //! Register sidebars
-add_action( 'wp', 'ua_webtide_register_sidebars' );
+add_action( 'widgets_init', 'ua_webtide_register_sidebars' );
 function ua_webtide_register_sidebars() {
 	global $next_webtide_meeting_html;
 
@@ -24,17 +24,18 @@ function ua_webtide_register_sidebars() {
 	$home_page_columns = null;
 
 	// Tweak on the front page
-	if ( is_front_page() ) {
+	//if ( is_front_page() ) {
 
 	    // Get the next meeting HTML
-	    $next_webtide_meeting_html = ua_webtide_get_next_monthly_meeting_html( array( 'include_excerpt' => false, 'include_button' => true, 'view_details' => false ) );
+	    // @TODO WHY ISN'T THIS WORKING?
+	    //$next_webtide_meeting_html = ua_webtide_get_next_monthly_meeting_html( array( 'include_excerpt' => false, 'include_button' => false, 'view_details' => false ) );
 
-        // Tweak the columns
-	    if ( IS_WEBTIDE_MEMBER && $next_webtide_meeting_html ) {
-	        $home_page_columns = ' large-pull-4';
-	    }
+	    // Tweak the columns
+	    //if ( IS_WEBTIDE_MEMBER && $next_webtide_meeting_html ) {
+            $home_page_columns = ' large-pull-4';
+	    //}
 
-	}
+	//}
 	
 	// Register the home page content area
     register_sidebar( array(
@@ -169,7 +170,6 @@ function ua_webtide_add_favicons() {
 //! Add site styles and scripts
 add_action( 'wp_enqueue_scripts', 'ua_webtide_enqueue_styles_and_scripts', 10000 );
 function ua_webtide_enqueue_styles_and_scripts() {
-	global $post;
 	
 	// Register our fonts
 	// Other considered fonts: Comfortaa

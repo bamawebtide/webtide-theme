@@ -35,48 +35,36 @@ get_header();
 						'view_details'    => false
 					) );
 				//}
-				
-				// Have a different order for members, putting the next meeting note first on small screens
-				if ( IS_WEBTIDE_MEMBER && $next_webtide_meeting_html ) {
-					
-					?><div class="small-12 medium-12 large-4 large-push-8 columns">
 
-						<div class="webtide-next-meeting">
+				?><div class="small-12 medium-12 large-4 large-push-8 columns"><?php
+
+					// Have a different order for members, putting the next meeting note first on small screens
+					if ( IS_WEBTIDE_MEMBER && $next_webtide_meeting_html ) {
+
+						?><div class="webtide-next-meeting">
 
 							<h2>Our Next Meeting</h2><?php
 
 							echo $next_webtide_meeting_html;
 
-						?></div>
+						?></div><?php
 
-					</div><?php
-						
-					// If we have featured content items...
-					if ( is_active_sidebar( 'home-page-featured-content' ) ) {
-			
-						// Print the featured content items
-						dynamic_sidebar( 'home-page-featured-content' );
-						
-					}
-					
-				} else {
-					
-					// If we have featured content items...
-					if ( is_active_sidebar( 'home-page-featured-content' ) ) {
-			
-						// Print the featured content items
-						dynamic_sidebar( 'home-page-featured-content' );
-						
-					}
-					
-					?><div class="small-12 medium-12 large-4 columns"><?php
-					
+					} else {
+
 						?><h2>Web Jobs at UA</h2>
-							
+
 						<p>The <a href="http://www.ua.edu/">The University of Alabama</a> provides an amazing work environment as well as the opportunity to be a part of an accomplished community of higher education web professionals. <a class="button expand" href="<?php echo get_bloginfo( 'url' ); ?>/jobs/">Learn more about available web jobs</a></p><?php
+
+					}
+
+				?></div><?php
 						
-					?></div><?php
-					
+				// If we have featured content items...
+				if ( is_active_sidebar( 'home-page-featured-content' ) ) {
+
+					// Print the featured content items
+					dynamic_sidebar( 'home-page-featured-content' );
+
 				}
 				
 			?></div>
