@@ -1,0 +1,2316 @@
+// WebTide
+
+// We need the functions
+@import "foundation/functions";
+
+// We need our mixins
+@import "mixins.scss";
+
+// We need our settings
+@import "webtide-settings.scss";
+
+// Import normalize
+@import "normalize";
+
+// Import Foudation
+@import "foundation";
+
+// Now to include our styles
+
+// Hide these elements visibly, but make sure they're still viewable by screen readers
+.screen-reader-text {
+	display: block;
+	width: 0;
+	height: 0;
+    margin: 0;
+	overflow: hidden;
+    text-indent: -9999px;
+	}
+
+.clear {
+    clear: both;
+}
+
+// Setup the HTML wrappers
+html, body {
+	width: 100%;
+	height: 100%;
+	}
+	
+// Hide stupid Query Monitor
+#qm {
+	display: none !important;
+	visibility: hidden !important;
+	}
+	
+body {
+	background: $webtide-bg-footer-color;
+	}
+
+// Hide the "Skip to Content" link
+#skip-to-content {
+	display: block;
+	position: fixed;
+	left: -1000px;
+	top: -1000px;
+	width: 0;
+	height: 0;
+	text-align: left;
+	overflow: hidden;
+	z-index: 1000000;
+
+	&:focus, &:active, &:hover {
+		left: 0;
+		top: 0;
+		width: auto;
+		height: auto;
+		overflow: visible;
+		background: #eee;
+		color: $black;
+		padding: 10px;
+	}
+
+}
+	
+// Make sure columns have height
+.columns {
+	min-height: 1px;
+	}
+
+strong {
+	font-weight: 700;
+	}
+	
+.red {
+	color: $webtide-red;
+	}
+	
+p.red {
+	line-height: 1.8;
+	}
+	
+h2 {
+	font-size: 2rem;
+	line-height: 1.3;
+	margin-top: 1em;
+	}
+	
+h3 {
+	color: rgba( $black, 0.7 );
+	text-transform: uppercase;
+	margin-top: 0.8em;
+	font-weight: 400;
+	
+	&:first-child {
+		margin-top: 0;
+		}
+		
+	}
+	
+// Put more space between <p> and <table>
+p + table {
+	margin-top: 1.2em;
+	}
+	
+ul.no-list-style,
+ol.no-list-style {
+	display: block;
+	list-style: none;
+	}
+	
+// Style images
+img {
+	margin: 0 0 $paragraph-margin-bottom 0;
+	}
+	
+// Buttons
+.button {
+	text-transform: uppercase;
+
+	&.expand {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+	
+	&.alignright {
+		width: 100%;
+		margin: 20px 0;
+		}
+		
+	}
+
+// Social Media buttons
+.social-button {
+	display: inline-block;
+	background-color: $primary-color;
+	background-repeat: no-repeat;
+	padding: 11px;
+	color: #fff;
+	font-size: 0.9em;
+	line-height: 1em;
+	margin: 0 10px $paragraph-margin-bottom 0;
+	text-decoration: none;
+	
+	&:hover {
+		color: #fff;
+		}
+	
+	&.facebook {
+		background-image: url( '../images/facebook-white.svg' );
+		background-position: 12px center;
+		background-size: auto 18px;
+		background-color: $facebook-color;
+		padding-left: 32px;
+		
+		&:hover {
+			background-color: scale-color( $facebook-color, $lightness: -20% );
+			}
+			
+		}
+
+	&.github {
+		background-image: url( '../images/github-white.svg' );
+		background-position: 10px center;
+		background-size: auto 15px;
+		background-color: $github-color;
+		padding-left: 38px;
+
+		&:hover {
+			background-color: scale-color( $github-color, $lightness: -20% );
+		}
+
+	}
+
+	&.twitter {
+		background-image: url( '../images/twitter-white.svg' );
+		background-position: 10px center;
+		background-size: auto 15px;
+		background-color: scale-color( $twitter-color, $lightness: -12% );
+		padding-left: 38px;
+		
+		&:hover {
+			background-color: scale-color( $twitter-color, $lightness: -25% );
+			}
+			
+		}
+		
+	}
+				
+// When there are no posts
+.no-posts {
+	font-style: italic;
+	
+	&.jobs {
+		margin-top: 25px;
+		padding-top: 25px;
+		border-top: 1px solid #ddd;
+		}
+		
+	}
+
+// Style the sponsors
+.sponsors-grid {
+    overflow: auto;
+	margin-top: 30px;
+
+    .sponsor {
+        display: block;
+        margin: 0 0 50px 0;
+
+        img {
+	        width: 100%;
+	        max-width: 100%;
+	        margin: 0;
+        }
+
+	    &.chs {
+		    img {
+			    width: 76%;
+		    }
+	    }
+
+	    &.education {
+		    img {
+			    width: 65%;
+		    }
+	    }
+
+	    &.etech {
+		    margin: -15px 0 40px 0;
+
+		    img {
+			    width: 60%;
+		    }
+	    }
+
+	    &.fa {
+		    img {
+			    width: 74.5%;
+		    }
+	    }
+
+	    &.ur {
+		    img {
+		        width: 91%;
+	        }
+        }
+
+    }
+
+}
+
+.ua-webtide-member-stats {
+	
+	> li {
+		margin: 10px 0 0 0;
+		font-size: 1.3rem;
+		line-height: 1.6;
+		font-weight: 600;
+		
+		&:first-child {
+			margin-top: 0;
+			}
+			
+		ul, ol {
+			font-weight: 400;
+			
+			li {
+				font-size: 0.95em;
+				line-height: 1.4;
+				margin-top: 3px !important;
+				margin-bottom: 3px;
+				}
+				
+			}
+			
+		}
+		
+	}
+	
+//! Style the loop
+.webtide-loop {
+	
+	// Make sure the first child has no top margin
+	*:first-child {
+		margin-top: 0;
+		}
+		
+	// Style avatar on profile page
+	&.post-194 {
+		
+		img.avatar {
+			float: left;
+			margin: 0 15px 1.7em 0;
+			}
+			
+		}
+		
+	}
+	
+//! Style the "lunch will be served" message
+.lunch-will-be-served,
+.blue-notice {
+	display: block;
+	background: rgba( $lunch-color, 0.07 );
+	padding: 10px 15px;
+	color: $lunch-color;
+	margin: 15px 0 $paragraph-margin-bottom 0;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	
+	a {
+		color: inherit;
+		text-decoration: underline;
+		}
+		
+	}
+	
+.meeting-speaker {
+	display: block;
+	
+	.speaker-label {
+		font-weight: 600;
+		}
+		
+	}
+	
+.tribe-events-single {
+	
+	.meeting-speaker {
+		color: rgba( $black, 0.7 );
+		font-size: 1.1em;
+		margin-top: -8px;
+		}
+		
+	}
+	
+//! Style the next and upcoming meeting promos
+.webtide-upcoming-events,
+.webtide-next-meeting {
+	
+	.meeting-speaker,
+	.meeting-date-time,
+	.meeting-location,
+	.meeting-view-details {
+		display: block;
+		clear: both;
+		}
+		
+	.meeting-speaker {
+		font-weight: 700;
+		}
+		
+	.members-only {
+		display: block;
+		background: rgba( $primary-color, 0.05 );
+		padding: 7px 8px;
+		margin: 3px 0;
+		font-size: 0.9em;
+		line-height: 1.3em;
+		font-weight: 600;
+		color: rgba( $primary-color, 0.8 );
+		}
+		
+	.lunch-will-be-served,
+	.blue-notice {
+		background: none;
+		padding: 0;
+		font-weight: 600;
+		border: 0;
+		border-radius: 0;
+		margin: 0;
+		}
+	
+	.meeting-dt-sep,
+	.meeting-time {
+		opacity: 0.8;
+		}
+		
+	}
+	
+//! Setup the WebTide logo, @ symbol, and UA wordmark
+.ua-webtide-logo,
+.ua-square,
+.logo {
+	display: block;
+	
+	img {
+        display: block;
+		max-width: 100%;
+		height: auto;
+		border: 0;
+		margin: 0;
+		padding: 0;
+		}
+	
+	span {
+		display: none;
+		}
+		
+	}
+	
+//! Style the members listing
+table.webtide-members-listing {
+	width: 100%;
+	text-align: left;
+	
+	th {
+		background: #444;
+		padding: 7px 5px;
+		color: $white;
+		font-weight: 400;
+		
+		&:first-child {
+			padding-left: 8px;
+			}
+			
+		}
+		
+	td {
+		padding: 8px 5px;
+		vertical-align: top;
+		
+		&:first-child {
+			padding-left: 8px;
+			}
+			
+		&.avatar {
+			width: 35px; //8 + 22 + 5
+			
+			img {
+				width: 22px;
+				height: 22px;
+				vertical-align: middle;
+				margin: 0;
+				}
+				
+			}
+		
+		&.name {
+			width: 200px;
+			}
+			
+		&.phone,
+		&.website {
+			width: 70px;
+			}
+			
+		img.email-icon {
+			display: inline-block;
+			width: auto;
+			height: 12px;
+			opacity: 0.5;
+			margin: 0;
+			vertical-align: middle;
+			}
+			
+		a.email {
+			text-decoration: none;
+			
+			img.email-icon {
+				margin-right: 4px;
+				}
+			
+			span {
+				text-decoration: underline;
+				}
+				
+			&:hover {
+				
+				img.email-icon {
+					opacity: 0.8;
+					}
+					
+				}
+				
+			}
+			
+		}
+	
+	tr {
+		
+		&:nth-child(even) {
+			background: rgba( $black, 0.05 );
+			
+			td {
+				background: rgba( $black, 0.05 );
+				}
+				
+			}
+			
+		}
+		
+	}
+	
+//! Form tweaks
+.gform_confirmation_message {
+	background: rgba( 0, 130, 0, 0.15 ) !important;
+	border: 0 !important;
+	padding: 1.2em !important;
+	color: #008200 !important;
+	font-weight: bold !important;
+	text-align: left !important;
+	}
+	
+// MailChimp jobs signup confirmation
+// MailChimp Visual Identity Standards signup confirmation
+#gform_confirmation_message_6,
+#gform_confirmation_message_7 {
+	float: right;
+	width: 300px;
+	margin: 0 0 20px 20px;
+	}
+	
+// MailChimp jobs signup form
+// MailChimp Visual Identity Standards signup form
+#gform_wrapper_6,
+#gform_wrapper_7 {
+	padding: 15px 20px 20px 20px;
+	margin: 0 0 20px 0;
+	background: rgba( $black, 0.05 );
+	
+	.gform_wrapper,
+	.gform_heading {
+		display: block;
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		}
+		
+	.gform_title {
+		display: block;
+		margin: 0 0 10px 0;
+		text-transform: none;
+		font-size: 1.2em;
+		line-height: 1.4em;
+		color: rgba( $black, 0.8 );
+		}
+		
+	.gform_description {
+		display: block;
+		font-size: 0.85em;
+		line-height: 1.5em;
+		margin: 0 0 12px 0;
+		}
+		
+	.gfield_label {
+		margin: 0;
+		}
+		
+	.gform_footer {
+		margin: 0;
+		padding: 0;
+		}
+		
+	input {
+		width: 100%;
+		margin: 0;
+		}
+		
+	input[type=submit] {
+		width: 100%;
+		margin: 2px 0 0 0;
+		padding: 10px;
+		}
+		
+	}
+	
+.gform_wrapper {
+	margin: 1.5em 0;
+	
+	&:first-child {
+		margin-top: 0;
+		}
+	
+	// Reset the font size and padding
+	#{text-inputs(all, 'input')},
+	select {
+		font-size: $input-font-size !important;
+		padding: $form-spacing / 2 !important;
+		margin: 0 0 0.5em 0 !important;
+		}
+		
+	input[type="radio"],
+	input[type="text"] {
+		cursor: pointer;
+		}
+		
+	ul.gfield_checkbox,
+	ul.gfield_radio {
+		
+		li {
+			clear: both;
+			overflow: visible !important;
+			margin-bottom: 0.5em !important;
+			
+			input[type=checkbox],
+			input[type=radio] {
+				margin-bottom: 0.5em !important;
+				}
+				
+			}
+			
+		}
+		
+	li.gfield {
+		margin-bottom: 0.6em !important;
+		
+		&.gf_list_inline,
+		&.gf_list_2col,
+		&.gf_list_3col,
+		&.gf_list_4col,
+		&.gf_list_5col  {
+			
+			ul.gfield_checkbox,
+			ul.gfield_radio {
+				margin-bottom: 0.5em !important;
+			
+				li {
+					clear: none !important;
+					margin-bottom: 0 !important;
+					}
+					
+				}
+				
+			}
+		
+		&.gf_list_inline {
+			
+			ul.gfield_checkbox,
+			ul.gfield_radio {
+			
+				li {
+					margin-right: 15px;
+					}
+					
+				}
+				
+			}
+			
+		}
+		
+	.gfield_description {
+		padding: 0 !important;
+		}
+		
+	}
+
+//! The banner area
+#ua-webtide-banner {
+	display: block;
+	background: none;
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: 2000;
+	overflow: visible;
+	width: 100%;
+	pointer-events: none;
+	}
+	
+//! The banner menu
+#ua-webtide-banner-menu {
+	display: block;
+	float: right;
+	margin: 0;
+	border: 0;
+	padding: 0;
+	list-style: none;
+	overflow: visible;
+	pointer-events: all;
+	z-index: 4000;
+	
+	li {
+		display: block;
+		float: left;
+		margin: $ua-webtide-banner-menu-item-margin-top 0 0 6px;
+		border: 0;
+		padding: 0;
+		list-style: none;
+		text-transform: none;
+		color: rgba( $black, 0.55 );
+		font-size: 0.75rem;
+		line-height: 1;
+		position: relative;
+		overflow: visible;
+		
+		&.cap {
+			text-transform: uppercase;
+			}
+		
+		a {
+			display: inline-block;
+			color: inherit;
+			text-decoration: none;
+			font-size: inherit;
+			line-height: inherit;
+			font-weight: inherit;
+			
+			&:hover {
+				color: rgba( $black, 0.7 );
+				text-decoration: underline;
+				}
+				
+			}
+			
+		&.dash {
+			padding-left: $ua-webtide-banner-menu-item-padding-left;
+			
+			&:before {
+				content: '';
+				display: block;
+				position: absolute;
+				left: 0;
+				top: 6px;
+				width: 4px;
+				height: 1px;
+				background: rgba( $black, 0.5 );
+			    padding: 0;
+				margin: 0;
+				}
+				
+			}
+
+		&.user {
+			margin-top: 8px;
+			padding-left: $ua-webtide-banner-menu-item-padding-left - $ua-webtide-banner-menu-user-horiz-padding;
+			margin-right: 0 - $ua-webtide-banner-menu-user-horiz-padding;
+			
+			// Move the dash down
+			&.dash {
+				
+				&:before {
+					top: 16px;
+					}
+					
+				}
+			
+			.user-inside {
+				display: inline-block;
+				min-width: 140px;
+				
+				.user-top {
+					display: block;
+					padding: $ua-webtide-banner-menu-user-vert-padding $ua-webtide-banner-menu-user-horiz-padding;
+					position: relative;
+					
+					.avatar {
+						display: inline-block;
+						width: 22px;
+						height: 22px;
+						line-height: 1;
+						-webkit-border-radius: 5px;
+						-moz-border-radius: 5px;
+						border-radius: 5px;
+						margin: 0 5px 0 0;
+						vertical-align: middle;
+						}
+						
+					.user-greeting {
+						display: inline-block;
+						line-height: 1;
+						vertical-align: middle;
+						font-weight: 700;
+						color: rgba( $black, 0.8 );
+						padding: 0 13px 0 0;
+						}
+						
+					&:after {
+						content: '';
+						display: block;
+						position: absolute;
+						right: $ua-webtide-banner-menu-user-horiz-padding;
+						bottom: 45%;
+						width: 0; 
+						height: 0; 
+						border-left: 4px solid transparent;
+						border-right: 4px solid transparent;
+						border-top-width: 4px;
+						border-top-style: solid;
+						border-top-color: rgba( $black, 0.8 );
+						margin: -4px 0 0 0;
+						cursor: pointer;
+						transition: bottom 0.5s ease;
+						}
+					
+					}
+					
+				.user-drop-down {
+					display: none;
+					}
+					
+				}
+					
+			&:hover {
+				
+				// Hide the dash
+				&:before {
+					display: none;
+					}
+				
+				.user-inside {
+					
+					.user-top {
+						background: $webtide-red;
+						-webkit-border-top-left-radius: 5px;
+						-moz-border-top-left-radius: 5px;
+						border-top-left-radius: 5px;
+						-webkit-border-top-right-radius: 5px;
+						-moz-border-top-right-radius: 5px;
+						border-top-right-radius: 5px;
+						position: relative;
+						overflow: visible;
+						z-index: 6000;
+						
+						.user-greeting {
+							color: #fff;
+							}
+							
+						&:after {
+							bottom: -4px;
+							border-top-color: $webtide-red;
+							}
+							
+						}
+						
+					.user-drop-down {
+						display: block;
+						background: $ua-webtide-banner-menu-user-drop-down-bg;
+						padding: 9px 10px;
+						color: #fff;
+						border: 1px solid rgba( $black, 0.05 );
+						border-top: 0;
+						-webkit-border-bottom-left-radius: 5px;
+						-moz-border-bottom-left-radius: 5px;
+						border-top-bottom-radius: 5px;
+						-webkit-border-bottom-right-radius: 5px;
+						-moz-border-bottom-right-radius: 5px;
+						border-bottom-right-radius: 5px;
+						position: relative;
+						z-index: 5000;
+					
+						ul.user-menu {
+							display: block;
+							float: none;
+							background: none;
+							margin: 0;
+							border: 0;
+							padding: 0;
+							list-style: none;
+							
+							li {
+								display: block;
+								float: none;
+								margin: 2px 0 0 0;
+								border: 0;
+								padding: 0;
+								list-style: none;
+								
+								a {
+									display: block;
+									padding: 3px 0;
+									}
+									
+								&:first-child {
+									margin-top: 0;
+									}
+									
+								&.profile {
+									
+									a {
+										background: url( '../images/webtide-user-icon.svg' ) left center no-repeat;
+										}
+										
+									}
+									
+								&.settings {
+									
+									a {
+										background: url( '../images/webtide-user-settings.svg' ) left center no-repeat;
+										}
+										
+									}
+									
+								&.directory {
+									
+									a {
+										background: url( '../images/webtide-users-icon.svg' ) left center no-repeat;
+										}
+										
+									}
+									
+								&.logout {
+									
+									a {
+										background: url( '../images/webtide-user-logout.svg' ) left center no-repeat;
+										}
+										
+									}
+									
+								&.icon {
+									
+									a {
+										color: #000;
+										opacity: 0.5;
+										padding-left: 15px;
+										background-size: auto 10px;
+										
+										&:hover {
+											opacity: 0.8;
+											}
+											
+										}
+										
+									}
+									
+								}
+								
+							}
+							
+						}
+						
+					}
+					
+				}
+				
+			}
+
+		&.sign-in {
+			margin-top: $ua-webtide-banner-menu-item-margin-top - $ua-webtide-banner-sign-in-padding;
+			
+			a {
+				background: $webtide-red;
+				color: #fff;
+				padding: $ua-webtide-banner-sign-in-padding;
+				-webkit-border-radius: 5px;
+				-moz-border-radius: 5px;
+				border-radius: 5px;
+				
+				&:hover {
+					background: scale-color( $webtide-red, $lightness: -30% ) !important;
+					text-decoration: none;
+					}
+		
+				}
+				
+				// Move the dash down
+				&.dash {
+					
+					&:before {
+						top: 11px;
+					}
+					
+				}
+				
+			}
+
+		// Hide on small screens because its in main menu
+		&.github {
+			display: none;
+
+			a {
+				display: block;
+				background: url( '../images/github-black.svg' ) right center no-repeat;
+				background-size: auto 22px;
+				width: 22px;
+				height: 22px;
+				opacity: 0.3;
+				margin: -5px 0 0 0;
+
+				&:hover {
+					opacity: 0.7;
+				}
+
+			}
+
+		}
+
+		// Hide on small screens because its in main menu
+		&.twitter {
+			display: none;
+			margin-left: 6px;
+
+			a {
+				display: block;
+				background: url('../images/twitter-black.svg') right center no-repeat;
+				background-size: auto 20px;
+				width: 24px;
+				height: 20px;
+				opacity: 0.3;
+				margin: -3px 0 0 0;
+
+				&:hover {
+					opacity: 0.7;
+				}
+
+			}
+
+		}
+			
+	}
+		
+}
+
+// The header area
+#ua-webtide-header {
+	background: #fff;
+	//height: $ua-webtide-header-main-height;
+	z-index: 1000;
+	overflow: visible;
+	position: relative;
+	
+	// Add a shadow below
+	&:after {
+		content: '';
+		position: absolute;
+		left: 0;
+		bottom: -5px;
+		width: 100%;
+		height: 5px;
+		background: rgba( $black, 0.05 );
+		}
+		
+	.header-main {
+		display: block;
+		padding: 50px 0 20px 0;
+		
+		.inside {
+			position: relative;
+			}
+			
+		}
+	
+	.ua-webtide-logo {
+        display: block;
+        width: 100%;
+        padding: 0 10px;
+        margin: 0 0 20px 0;
+		}
+
+	.other-header-items {
+		display: block;
+		background: rgba($black, 0.1);
+		width: 100%;
+		padding: 15px;
+		margin: 0;
+		pointer-events: none; // so that it doesn't interfere with the wordmark
+
+		* {
+			pointer-events: auto; // so that its children's links still work
+		}
+
+		.github {
+			display: block;
+			float: right;
+			background: url('../images/github-black.svg') right center no-repeat;
+			background-size: auto $ua-webtide-header-github-small-height;
+			width: $ua-webtide-header-github-small-width;
+			height: $ua-webtide-header-github-small-height;
+			margin: -1px 0 0 $ua-webtide-header-github-margin-left;
+			padding: 0;
+			border: 0;
+			opacity: 0.3;
+			cursor: pointer;
+
+			&:hover {
+				opacity: 0.7;
+			}
+
+		}
+
+		.twitter {
+			display: block;
+			float: right;
+			background: url('../images/twitter-black.svg') right center no-repeat;
+			background-size: auto $ua-webtide-header-twitter-small-height;
+			width: $ua-webtide-header-twitter-small-width;
+			height: $ua-webtide-header-twitter-small-height;
+			margin: 0 0 0 $ua-webtide-header-twitter-margin-left;
+			padding: 0;
+			border: 0;
+			opacity: 0.3;
+			cursor: pointer;
+
+			&:hover {
+				opacity: 0.7;
+			}
+
+		}
+
+		.magnifying-glass {
+			display: block;
+			float: right;
+			background: url('../images/magnifying-glass-black.svg') right center no-repeat;
+			background-size: auto $ua-webtide-header-magnifying-glass-small-height;
+			width: $ua-webtide-header-magnifying-glass-small-width;
+			height: $ua-webtide-header-magnifying-glass-small-height;
+			margin: 0 0 0 $ua-webtide-header-magnifying-glass-margin-left;
+			padding: 0;
+			border: 0;
+			opacity: 0.3;
+			cursor: pointer;
+
+			&:hover {
+				opacity: 0.7;
+			}
+
+		}
+
+	}
+		
+	.header-member-notification {
+		background: rgba( $black, 0.1 ); //#e3e3e2
+		padding: 10px 0;
+		overflow: hidden;
+		
+		* {
+			color: #000; //rgba( 255, 255, 255, 0.8 );
+			font-size: 0.8rem;
+			line-height: 1.5;
+			margin-bottom: 0;
+			opacity: 0.95;
+			}
+		
+		.i-for-information {
+			position: relative;
+			padding-left: 53px;
+			
+			&:before {
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 50%;
+				margin: -23px 0 0 0;
+				background: url( '../images/header-member-notification-information.svg' ) center center no-repeat #000;
+				background-size: auto 20px;
+				width: 46px;
+				height: 46px;
+				padding: 0;
+				//border: 1px solid #000;
+				-webkit-border-radius: 50%;
+				-moz-border-radius: 50%;
+				border-radius: 50%;
+				opacity: 0.9;
+				}
+				
+			}
+			
+		}
+		
+	}
+
+//! The main menu
+#ua-webtide-main-menu-wrapper {
+	
+	.toggle-main-menu {
+		display: block;
+		height: $ua-webtide-main-menu-toggle-height;
+		background: none;
+		color: rgba( $black, 0.5 );
+		text-transform: uppercase;
+		font-size: 1em;
+		line-height: $ua-webtide-main-menu-toggle-height;
+		padding: 0;
+		cursor: pointer;
+		overflow: hidden;
+			
+		.open-menu-label,
+		.close-menu-label {
+			display: block;
+			float: left;
+			text-transform: uppercase;
+			}
+			
+		.close-menu-label {
+			display: none;
+			}
+
+		.toggle-icon {
+			display: block;
+			float: left;
+			width: 30px;
+			height: 18px;
+			cursor: pointer;
+			position: relative;
+			margin: 6px 12px 0 0;
+		
+			.bar {
+				background: rgba( $black, 0.3 );
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 2px;
+				margin: 0;
+				opacity: 1;
+				-webkit-transition: all 200ms ease-out;
+				-moz-transition: all 200ms ease-out;
+				-ms-transition: all 200ms ease-out;
+				-o-transition: all 200ms ease-out;
+				transition: all 200ms ease-out;
+				
+				&.two {
+					margin-top: 8px;
+					}
+					
+				&.three {
+					margin-top: 16px;
+					}
+					
+				}
+				
+			}
+			
+		}
+		
+	&.open {
+		
+		.toggle-main-menu {
+			background: none;
+			
+			&:hover {
+				background: none;
+				}
+				
+			.toggle-icon {
+				
+				.bar {
+					
+					&.one {
+						margin-top: 8px;
+						-webkit-transform: rotate(45deg);
+						-moz-transform: rotate(45deg);
+						-ms-transform: rotate(45deg);
+						-o-transform: rotate(45deg);
+						transform: rotate(45deg);
+						}
+						
+					&.two {
+						opacity: 0;
+						}
+						
+					&.three {
+						margin-top: 8px;
+						-webkit-transform: rotate(-45deg);
+						-moz-transform: rotate(-45deg);
+						-ms-transform: rotate(-45deg);
+						-o-transform: rotate(-45deg);
+						transform: rotate(-45deg);
+						}
+					
+					}
+				
+				}
+			
+			.open-menu-label {
+				display: none;
+				}
+				
+			.close-menu-label {
+				display: block;
+				}
+				
+			}
+			
+		}
+	
+	}
+
+// The main menu	
+#ua-webtide-main-menu {
+	display: none;
+	background: none;
+	margin: 0;
+	border: 0;
+	padding: 12px 0 0 5px;
+	list-style: none;
+	overflow: visible;
+	
+	li {
+		display: block;
+		margin: 0;
+		border: 0;
+		padding: 0;
+		list-style: none;
+		text-transform: none;
+		color: rgba( $black, 0.7 );
+		font-size: 1.4rem;
+		line-height: 2;
+		font-weight: 400;
+		position: relative;
+		overflow: visible;
+		
+		a {
+			display: block;
+			color: inherit;
+			text-decoration: none;
+			font-size: inherit;
+			line-height: inherit;
+			font-weight: inherit;
+			}
+			
+		&.current-menu-item a,
+		a:hover {
+			color: $webtide-red;
+			}
+			
+		.job-notification {
+			display: block;
+			background: $webtide-red;
+			-webkit-border-radius: 50%;
+			-moz-border-radius: 50%;
+			border-radius: 50%;
+			color: #fff;
+			font-size: 0.9em;
+			line-height: $ua-webtide-main-menu-notification-dropdown-height;
+			width: $ua-webtide-main-menu-notification-dropdown-width;
+			height: $ua-webtide-main-menu-notification-dropdown-height;
+			text-align: center;
+			padding: 0;
+			margin: 0;
+			position: absolute;
+			top: 50%;
+			right: 0;
+			margin: ( 0 - ( $ua-webtide-main-menu-notification-dropdown-height / 2 ) ) 0 0 0;
+			z-index: -1;
+		}
+		
+		// Wrapper around the jobs count notification
+		.has-jobs-notification {
+			display: block;
+			
+			a {
+				padding-right: $ua-webtide-main-menu-notification-dropdown-width + 10;
+				}
+			
+			}
+			
+		}
+		
+	}
+	
+// Modify the header on the home page
+body.home #ua-webtide-header {
+	
+	// Darken the shadow below
+	&:after {
+		background: rgba( $black, 0.2 );
+		}
+		
+	}
+	
+// The main search area
+#ua-webtide-main-search {
+	clear: both;
+	display: none;
+	background: rgba( $black, 0.8 );
+	margin: 0;
+	padding: 0;
+	border: 0;
+	border-bottom: 2px solid rgba( $black, 0.3 );
+	position: relative;
+	overflow: visible;
+	
+	form {
+		display: block;
+		margin: 0;
+		border: 0;
+		padding: 0;
+		position: relative;
+	
+		input {
+			margin: 0;
+			}
+		
+		label {
+			margin: 0;
+			border: 0;
+			padding: 0;
+			}
+		
+		.search-field {
+			background: none;
+			height: $ua-webtide-main-search-height;
+			font-size: 1.5em;
+			line-height: $ua-webtide-main-search-height;
+			font-weight: 300;
+			box-shadow: none;
+			border: 0;
+			padding: 0 $ua-webtide-main-search-height 0 0;
+			color: $white;
+			@include set-placeholder-color( rgba( $white, 0.7 ) );
+			}
+		
+		.search-submit {
+			display: none;
+			}
+		
+		.search-icon {
+			display: none;
+			}
+		
+		.close-search {
+			display: block;
+			background: url( '../images/close-x-white.svg' ) right center no-repeat;
+			background-size: auto 20px;
+			position: absolute;
+			right: 0;
+			top: 0;
+			width: $ua-webtide-main-search-height;
+			height: $ua-webtide-main-search-height;
+			cursor: pointer;
+			}
+		
+		}
+		
+	&.is-active {
+		display: block;
+		}
+	
+	}
+	
+// When the header "opens" up
+@media #{$ua-webtide-header-breakpoint} {
+
+	//! The banner menu
+	#ua-webtide-banner-menu {
+
+		li {
+
+			// Display Github and Twitter
+			&.github,
+			&.twitter {
+				display: block;
+			}
+
+		}
+
+	}
+	
+	// The header area
+	#ua-webtide-header {
+			
+		.header-main {
+			padding: 32px 0 26px 0;
+			}
+			
+		.ua-webtide-logo {
+            float: left;
+			width: $ua-webtide-header-logo-width;
+            padding: 0;
+            margin: 0;
+			}
+			
+		.other-header-items {
+			background: none;
+			position: absolute;
+			right: ($column-gutter / 2);
+			bottom: 0;
+			padding: 0 ($ua-webtide-header-magnifying-glass-width + $ua-webtide-header-magnifying-glass-margin-left + 10px) 0 ($ua-webtide-header-logo-width + ( $column-gutter / 2 ) + 20px);
+			margin: 0;
+
+			// Hide when opened because its in the banner
+			.github {
+				display: none;
+				/*float: none;
+				position: absolute;
+				right: $ua-webtide-header-twitter-width + $ua-webtide-header-twitter-margin-left + $ua-webtide-header-magnifying-glass-width + $ua-webtide-header-magnifying-glass-margin-left;
+				background-size: auto $ua-webtide-header-github-height;
+				width: $ua-webtide-header-github-width;
+				height: $ua-webtide-header-github-height;
+				bottom: 0;
+				margin: 0 0 0 $ua-webtide-header-github-margin-left;
+				padding: 0;*/
+			}
+
+			// Hide when opened because its in the banner
+			.twitter {
+				display: none;
+				/*float: none;
+				position: absolute;
+				right: $ua-webtide-header-magnifying-glass-width + $ua-webtide-header-magnifying-glass-margin-left;
+				background-size: auto $ua-webtide-header-twitter-height;
+				width: $ua-webtide-header-twitter-width;
+				height: $ua-webtide-header-twitter-height;
+				bottom: 0;
+				margin: 0 0 0 $ua-webtide-header-twitter-margin-left;
+				padding: 0;*/
+			}
+
+			.magnifying-glass {
+				float: none;
+				position: absolute;
+				right: 0;
+				bottom: 0;
+				background-size: auto $ua-webtide-header-magnifying-glass-height;
+				width: $ua-webtide-header-magnifying-glass-width;
+				height: $ua-webtide-header-magnifying-glass-height;
+				margin: 0 0 0 $ua-webtide-header-magnifying-glass-margin-left;
+				padding: 0;
+			}
+
+		}
+			
+	}
+	
+	// The main menu
+	#ua-webtide-main-menu-wrapper {
+		float: right;
+		
+		.toggle-main-menu {
+			display: none !important;
+			}
+			
+		}
+		
+	#ua-webtide-main-menu {
+		display: block !important;
+		padding: 0;
+		
+		li {
+			float: left;
+			margin: 0 0 0 25px;
+			font-size: 1em;
+			line-height: 1.4;
+			
+			// The job notification
+			.job-notification {
+				top: -5px;
+				right: 0;
+				margin: 0;
+				font-size: 12px;
+				line-height: $ua-webtide-main-menu-notification-height;
+				width: $ua-webtide-main-menu-notification-width;
+				height: $ua-webtide-main-menu-notification-height;
+				}
+			
+			// Wrapper around the jobs count notification
+			.has-jobs-notification {
+				display: inline-block;
+				
+				a {
+					padding-right: $ua-webtide-main-menu-notification-width + 2;
+					}
+					
+				}
+				
+			}
+			
+		}
+		
+	}
+	
+//! The home page welcome area
+#ua-webtide-welcome {
+	background: url( '../images/welcome/IMG_0745-1600x400.jpg' ) repeat-x center center;
+	-webkit-background-size: auto 100%;
+	-moz-background-size: auto 100%;
+	-o-background-size: auto 100%;
+	background-size: auto 100%;
+	padding: 30px 10px;
+	position: relative;
+	
+	.welcome-message {
+		width: 100%;
+		max-width: $ua-webtide-welcome-message-width;
+		
+		* {
+			font-size: 1.6rem;
+			line-height: 1.4;
+			font-weight: 600;
+			color: #fff;		
+			}
+			
+		p {
+			margin-bottom: 0.4em;
+			}
+		
+		.button {
+			font-size: 0.9rem;
+		    line-height: 1.2;
+			padding: 1rem;
+			margin-bottom: 0;
+			}
+		
+		}
+		
+	// Add a cover
+	&:before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba( $black, 0.6 );
+		}
+		
+	// Add a shadow at the bottom
+	&:after {
+		content: '';
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		height: 5px;
+		background: rgba( $black, 0.2 );
+		}
+		
+	}
+
+// When the welcome area gets bigger up
+@media #{$ua-webtide-welcome-breakpoint} {
+
+	#ua-webtide-welcome {
+		min-height: $ua-webtide-welcome-height;
+		padding: $ua-webtide-welcome-padding-top 0 ( $ua-webtide-welcome-padding-top - 5 ) 0;
+
+		.welcome-message {
+
+			* {
+				font-size: 2.5rem;
+				line-height: 1.4;
+			}
+
+			.button {
+				font-size: 1.1rem;
+				line-height: 1.2;
+				padding: 1rem 1.3rem;
+			}
+
+		}
+
+	}
+
+}
+	
+//! The sections on the home page
+#ua-webtide-front-page-sections {
+
+	// Increase side padding on small screens
+	.columns {
+		padding-left: 25px;
+		padding-right: 25px;
+	}
+	
+	section {
+		background: #fff;
+		padding: 30px 0;
+		//min-height: 500px;
+		
+		h2 {
+			font-family: $open-sans;
+			font-size: 1.7em;
+			line-height: 1.3;
+			font-weight: 300;
+			margin-top: 0;
+			text-transform: none;
+			}
+			
+		h3 {
+			font-size: 1.1rem;
+			line-height: 1.5;
+			text-transform: none;
+			}
+			
+		}
+
+		.button {
+			display: block;
+			background: rgba( $black, 0.7 );
+			padding: 1em 0;
+			font-size: 0.95em;
+			line-height: 1;
+			color: $white;
+			font-weight: 400;
+
+			&:hover {
+				background: $primary-color;
+				color: $white;
+			}
+
+		}
+
+		p .button {
+			margin-top: 15px;
+		}
+		
+		.webtide-next-meeting {
+			
+			.meeting-title {
+				margin: 0 0 5px 0;
+				}
+			
+			.meeting-speaker,
+			.meeting-date-time,
+			.meeting-location,
+			.meeting-view-details,
+			.lunch-will-be-served,
+			.blue-notice {
+				font-size: 0.9rem;
+				line-height: 1.7;
+				}
+
+			.meeting-details + p {
+				margin-top: -0.7em;
+			}
+				
+		}
+		
+	}
+	
+//! The main area title header
+#ua-webtide-main-header {
+	background: $webtide-red;
+	padding: 30px 0;
+	text-align: center;
+	color: $white;
+	
+	a {
+		color: inherit;
+		}
+	
+	.content-title {
+		font-family: $ubuntu;
+		color: inherit;
+		font-size: 2em;
+		line-height: 1.4em;
+		margin: 0; //0 0 3px 0;
+		text-transform: uppercase;
+		font-weight: 400;
+		}
+		
+	.content-subheader{
+		font-family: inherit;
+		color: inherit;
+		font-size: 1.4em;
+		line-height: 1.6em;
+		margin: 0;
+		padding: 0 20%;
+		font-weight: 300;
+		opacity: 0.9;
+		
+		&.long-subheader {
+			padding: 0 10%;
+			}
+			
+		}
+		
+	}
+	
+//! Breadcrumbs
+ul#ua-webtide-breadcrumbs {
+	display: block;
+	list-style: none;
+	color: rgba( $black, 0.8 );
+	overflow: hidden;
+	margin: 0 0 1.5em 0;
+	padding: 0;
+	
+	li {
+		display: block;
+		list-style: none;
+		float: left;
+		font-size: 0.9em;
+		line-height: 1.2;
+		font-weight: 300;
+		margin: 0;
+		padding: 0 0 0 7px;
+		
+		&:before {
+			content: '/';
+			padding: 0 6px 0 0;
+		}
+		
+		&:first-child {
+			padding-left: 0;
+			
+			&:before {
+				display: none;
+			}
+		
+		}
+		
+	}
+	
+	a {
+		color: rgba( $black, 0.8 );
+		font-size: inherit;
+		font-weight: 300;
+		text-decoration: none;
+		
+		&:hover {
+			text-decoration: underline;
+		}
+		
+	}
+	
+}
+
+//! The main content area
+#ua-webtide-main {
+	background: #fff;
+	padding: 30px 0 20px 0;
+	
+	.post-meta {
+		font-size: 1.05rem;
+		line-height: 1.6;
+		color: rgba( $black, 0.5 );
+		margin-bottom: 0.8rem;
+		
+		.meta-value {
+			color: rgba( $black, 0.75 );
+			}
+			
+		}
+		
+	.post-title + .post-meta {
+		margin-top: -5px;
+		}
+	
+	// Content area
+	.content {
+			
+		}
+	
+	// Sidebar area
+	.sidebar {
+		padding-top: 30px;
+		
+		h3 {
+			font-family: $open-sans;
+			font-size: 1.2rem;
+			font-weight: 300;
+			text-transform: uppercase;
+			}
+			
+		h4 {
+			font-family: $open-sans;
+			font-size: 1.2rem;
+			line-height: 1.5;
+			margin-top: 0;
+			}
+		
+		ul, ol {
+			margin-left: 0;
+			}
+			
+		p {
+			font-size: 0.9rem;
+			line-height: 1.6;
+			}
+			
+		h3 + h4 {
+			margin-top: -3px;
+			}
+		
+		h4 + p {
+			margin-top: -4px;
+			}
+		
+		}
+		
+		.widget {
+			margin: 0 0 30px 0;
+			//border-top: 1px solid #ddd;
+			//padding: 20px 0 0 0;
+			
+			.widget-title {
+				margin-top: 0;
+				
+				.widget-title-link {
+					float: right;
+					text-transform: none;
+					font-size: 0.7em;
+					line-height: 2.3;
+					}
+					
+				}
+			
+			*:last-child {
+				margin-bottom: 0;
+				}
+				
+			//! Style the HighEdWeb Alabama "Save the Date" badge
+			&.highedweb-alabama-save-the-date-badge {
+                overflow: auto;
+
+                a {
+                    display: block;
+                    overflow: auto;
+                    text-decoration: none;
+                    color: #000;
+                    background: #c5dced;
+                    padding: 12px 10px 12px 12px;
+
+                    &:hover {
+
+                        .header {
+                            text-decoration: underline;
+                            color: #711421;
+                        }
+
+                    }
+
+                }
+
+                .logo {
+                    display: block;
+                    float: left;
+                    width: 23%;
+                    margin: 0 13px 3px 0;
+                }
+
+                .header {
+                    font-size: 1em;
+                    line-height: 1.3;
+                    margin: 0 0 2px 0;
+                    color: #005487;
+                    text-transform: none;
+                    font-weight: 400;
+                }
+
+                p {
+                    margin: 0;
+
+                    &.date {
+                        font-size: 1em;
+                        line-height: 1.3;
+                        margin: 0 0 1px 0;
+                    }
+
+                    &.city {
+                        margin: 0 0 3px 0;
+                    }
+
+                    &.description {
+                        font-size: 0.8em;
+                        line-height: 1.25em;
+                        color: rgba($black, 0.75);
+                    }
+
+                }
+
+            }
+			
+			// Upcoming Events and Next Meeting
+			&.webtide-upcoming-events,
+			&.webtide-next-meeting {
+				
+				li.event {
+					margin-bottom: 15px;
+					
+					&:last-child {
+						margin-bottom: 0;
+						}
+						
+					}
+			
+				.meeting-title {
+					font-size: 1rem;
+					line-height: 1.4rem;
+					font-weight: 700;
+					}
+					
+				}
+					
+			// The Tribe Events "Upcoming Events" widget
+			&.tribe-events-list-widget {
+				
+				li {
+					margin: 0 0 10px 0;
+					}
+				
+				h4 {
+					font-size: 1rem;
+					line-height: 1.4rem;
+					}
+					
+				.duration {
+					font-size: 0.9rem;
+					line-height: 1;
+					font-weight: 600;
+					}
+						
+				}
+				
+				.tribe-events-widget-link {
+					
+					a {
+						font-size: inherit;
+						font-weight: inherit;
+						text-decoration: underline;
+						}
+						
+					}
+					
+			// Nav menus
+			&.widget_nav_menu {
+				
+				ul.menu {
+					list-style: none;
+					font-size: 0.9em;
+					line-height: 1.85;
+					
+					li {
+						border-top: 1px solid #ddd; //rgba( #000, 0.1 );
+						
+						a {
+							display: block;
+							padding: 5px 10px 5px 3px;
+							}
+							
+						&.current-menu-item {
+							font-weight: bold;
+							}
+							
+						}
+						
+					}
+				
+				}
+				
+			&.webtide-button {
+				
+				.button {
+					font-size: 0.9em;
+					padding-top: 0.8em;
+					padding-bottom: 0.85em;
+					}
+				
+				// When you have a button above a button
+				& + .webtide-button {
+					border-top: 0;
+					padding-top: 0;
+					margin-top: -10px;
+					}
+					
+				}
+					
+			&:first-child {
+				margin-top: 0;
+				padding-top: 0;
+				border-top: 0;
+				}
+				
+			}				
+		
+	}
+	
+//! The footer area
+#ua-webtide-footer {
+	background: $webtide-bg-footer-color;
+	padding: 20px 0;
+	
+	* {
+		font-size: 0.8rem;
+		line-height: 1.5;
+		color: rgba( 255, 255, 255, 0.5 );
+		}
+		
+	a {
+		color: inherit;
+		
+		&:hover {
+			color: rgba( 255, 255, 255, 1 );
+			}
+			
+		}
+		
+	.ua-square {
+		display: block;
+		float: left;
+		background: url( '../images/ua-square-gray.svg' ) left center no-repeat;
+		background-size: $ua-webtide-footer-square-w-h $ua-webtide-footer-square-w-h;
+		width: $ua-webtide-footer-square-w-h;
+		height: $ua-webtide-footer-square-w-h;
+		opacity: 0.3;
+		margin: 0 $ua-webtide-footer-square-margin-right 0 0;
+		}
+		
+	ul.footer-items {
+		display: block;
+		margin: 0;
+		border: 0;
+		padding: 0;
+		list-style: none;
+		overflow: auto;
+		
+		li {
+			display: block;
+			float: left;
+			margin: 0;
+			border: 0;
+			padding: 0 0 0 14px;
+			list-style: none;
+			text-transform: none;
+			position: relative;
+			overflow: visible;
+			
+			a {
+				display: block;
+				color: inherit;
+				text-decoration: underline;
+				font-size: inherit;
+				line-height: inherit;
+				font-weight: inherit;
+				}
+				
+			&:before {
+				content: '';
+				display: block;
+				position: absolute;
+				left: 5px;
+				top: 50%;
+				width: 4px;
+				height: 1px;
+				background: rgba( 255, 255, 255, 0.6 );
+			    padding: 0;
+				margin: 0;
+				}
+				
+			&:first-child {
+				padding-left: 0;
+				
+				&:before {
+					display: none;
+					}
+				
+				}
+				
+			}
+			
+		}
+
+	.github {
+		display: block;
+		background: url( '../images/github-white.svg' ) right center no-repeat;
+		background-size: auto $ua-webtide-header-github-height;
+		position: absolute;
+		right: ( $column-gutter / 2 ) + $ua-webtide-header-twitter-width + $ua-webtide-header-twitter-margin-left;
+		top: 0;
+		width: $ua-webtide-header-github-width;
+		height: $ua-webtide-header-github-height;
+		margin: 3px 0 0 $ua-webtide-header-github-margin-left;
+		padding: 0;
+		border: 0;
+		opacity: 0.3;
+		cursor: pointer;
+
+		&:hover {
+			opacity: 0.7;
+		}
+
+	}
+
+	.twitter {
+		display: block;
+		background: url( '../images/twitter-white.svg' ) right center no-repeat;
+		background-size: auto $ua-webtide-header-twitter-height;
+		position: absolute;
+		right: ( $column-gutter / 2 );
+		top: 0;
+		width: $ua-webtide-header-twitter-width;
+		height: $ua-webtide-header-twitter-height;
+		margin: 4px 0 0 $ua-webtide-header-twitter-margin-left;
+		padding: 0;
+		border: 0;
+		opacity: 0.3;
+		cursor: pointer;
+			
+		&:hover {
+			opacity: 0.7;
+			}
+			
+		}
+	
+	.magnifying-glass {
+		display: block;
+		background: url( '../images/magnifying-glass-white.svg' ) right center no-repeat;
+		background-size: auto $ua-webtide-header-magnifying-glass-height;
+		float: right;
+		width: $ua-webtide-header-magnifying-glass-width;
+		height: $ua-webtide-header-magnifying-glass-height;
+		margin: 4px 0 0 $ua-webtide-header-magnifying-glass-margin-left;
+		padding: 0;
+		border: 0;
+		opacity: 0.3;
+		cursor: pointer;
+			
+		&:hover {
+			opacity: 0.7;
+			}
+			
+		}
+		
+	}
+	
+// Medium UP
+@media #{$medium-up} {
+	
+	// Buttons
+	.button {
+		
+		&.alignright {
+			float: right;
+			width: auto;
+			margin: 20px 0 20px 30px;
+			}
+			
+		}
+	
+	// The breadcrumbs
+	ul#ua-webtide-breadcrumbs {
+		margin-top: -15px;
+		}
+	
+	//! The main content area
+	#ua-webtide-main {
+		padding: 50px 0 35px 0;
+		
+		// Main content area
+		.content {
+			
+			// If content has a sidebar
+			&.has-left-sidebar {
+				padding-left: 45px;
+				}
+				
+			}
+			
+		// Sidebar area
+		.sidebar {
+			
+			.widget {
+				
+				//! Style the HighEdWeb Alabama "Save the Date" badge
+				&.highedweb-alabama-save-the-date-badge {
+				
+					p {
+						
+						&.description {
+							clear: left;
+							}
+						}
+						
+					}
+					
+				}
+				
+			}
+			
+		}
+		
+	#ua-webtide-footer {
+			
+		.ua-square {
+			}
+			
+		ul.footer-items {
+			
+			li {
+				
+				&.break {
+					clear: left;
+					padding-left: 0;
+				
+					&:before {
+						display: none;
+						}
+						
+					}
+					
+				}
+				
+			}
+			
+		}
+		
+	}
+						
+	
+// Large UP
+@media #{$large-up} {
+
+	// The sections on the home page
+	#ua-webtide-front-page-sections {
+
+		// Reset the side padding for large up
+		.columns {
+			padding-left: $column-gutter / 2;
+			padding-right: $column-gutter / 2;
+		}
+
+	}
+	
+	// MailChimp jobs signup form
+	// MailChimp Visual Identity Standards signup form
+	#gform_wrapper_6,
+	#gform_wrapper_7 {
+		float: right;
+		width: 300px;
+		margin-left: 20px;
+		}
+		
+	}

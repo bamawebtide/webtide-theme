@@ -1,0 +1,113 @@
+// WebTide settings
+
+// We need the Foundation settings
+@import "foundation/_settings";
+
+// Set colors
+$webtide-red: scale-color( #990000, $lightness: -20% );
+$webtide-bg-footer-color: #111;
+$black: rgb( 0, 0, 0 );
+$white: rgb( 255, 255, 255 );
+
+// Overwrite Foundation settings
+
+// Increase the row width
+$row-width: rem-calc( 1140 );
+
+// Set the column gutter
+$column-gutter: 30px;
+
+// Set the primary color
+$primary-color: $webtide-red;
+
+// OTHER COLORS
+$lunch-color: #003d86;
+
+// Social Media colors
+$facebook-color: #3b5998;
+$twitter-color: #55ACEE;
+$github-color: #000;
+
+// FONTS
+$open-sans: 'Open Sans', sans-serif;
+$ubuntu: 'Ubuntu', sans-serif;
+
+// Set the base font
+$font-family-sans-serif: $open-sans;
+$font-weight-normal: 400; // Regular
+
+// Tweak the banner
+$ua-webtide-banner-height: 35px;
+$ua-webtide-banner-menu-item-margin-top: 18px;
+$ua-webtide-banner-menu-item-padding-left: 11px;
+$ua-webtide-banner-menu-user-vert-padding: 5px;
+$ua-webtide-banner-menu-user-horiz-padding: 7px;
+$ua-webtide-banner-menu-user-drop-down-bg: #f8f8f8;
+$ua-webtide-banner-sign-in-padding: 5px;
+
+// Tweak the headers
+$ua-webtide-header-main-height: 145px;
+$ua-webtide-header-breakpoint: "#{$screen} and (min-width:840px)";
+$h1-font-size: rem-calc( 40 );
+$header-font-weight: 400;
+
+// Setup the header WebTide logo
+$ua-webtide-header-logo-width: 317px;
+
+// Setup the icons
+$ua-webtide-header-magnifying-glass-small-width: 30px;
+$ua-webtide-header-magnifying-glass-small-height: 30px;
+$ua-webtide-header-magnifying-glass-width: 23px;
+$ua-webtide-header-magnifying-glass-height: 23px;
+$ua-webtide-header-magnifying-glass-margin-left: 11px;
+
+$ua-webtide-header-twitter-small-width: 37px;
+$ua-webtide-header-twitter-small-height: 30px;
+$ua-webtide-header-twitter-width: 29px;
+$ua-webtide-header-twitter-height: 23px;
+$ua-webtide-header-twitter-margin-left: 13px;
+
+$ua-webtide-header-github-small-width: 33px;
+$ua-webtide-header-github-small-height: 32px;
+$ua-webtide-header-github-width: 26px;
+$ua-webtide-header-github-height: 25px;
+$ua-webtide-header-github-margin-left: 16px;
+
+// Setup the main menu
+$ua-webtide-main-menu-notification-dropdown-width: 30px;
+$ua-webtide-main-menu-notification-dropdown-height: 30px;
+$ua-webtide-main-menu-notification-width: 20px;
+$ua-webtide-main-menu-notification-height: 20px;
+$ua-webtide-main-menu-toggle-height: 30px;
+
+// The main search area
+$ua-webtide-main-search-height: 55px;
+
+// Setup the home page welcome area
+$ua-webtide-welcome-breakpoint: "#{$screen} and (min-width:600px)";
+$ua-webtide-welcome-padding-top: 45px;
+$ua-webtide-welcome-height: 400px;
+$ua-webtide-welcome-message-width: 600px;
+
+// Setup the footer area
+$ua-webtide-footer-square-w-h: 40px;
+$ua-webtide-footer-square-margin-right: 12px;
+
+// Tweak the paragraphs
+$paragraph-font-size: 1rem;
+$paragraph-line-height: 1.8;
+$paragraph-margin-bottom: 1.1em;
+
+// We want our links underlined
+$anchor-text-decoration: underline;
+$anchor-text-decoration-hover: underline;
+
+// Tweak the lists
+$list-side-margin: 2.7em;
+
+// Tweak the tables
+$table-border-style: none;
+$table-border-size: 0;
+
+// BUTTONS
+$button-font-weight: 300;
