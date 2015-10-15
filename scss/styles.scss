@@ -139,6 +139,15 @@ img {
 		
 	}
 
+// Panels
+.panel {
+
+	&.callout {
+		background: rgba( $webtide-red, 0.1 );
+	}
+
+}
+
 // Social Media buttons
 .social-button {
 	display: inline-block;
