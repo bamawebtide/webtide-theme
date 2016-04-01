@@ -165,23 +165,23 @@ ul.tribe-events-sub-nav a:hover {
 
 }
 	
-.single-tribe_events {
-	
-	h2.tribe-events-single-event-title {
-		line-height: 2.6rem;
+.tribe-events-single-event-title {
+	line-height: 3rem;
 
-		& + .tribe-events-schedule {
-			margin-top: 10px;
-			margin-bottom: 0.5rem;
+	& + .tribe-events-schedule {
+		margin: 5px 0 25px 0;
+
+		h2 {
+			margin: 0;
 		}
 
 	}
-		
-	.tribe-events-event-meta {
-		background: rgba($black, 0.05);
-		border: 0;
-	}
-		
+
+}
+
+.tribe-events-event-meta {
+	background: rgba($black, 0.05);
+	border: 0;
 }
 
 #tribe-events-pg-template {
