@@ -207,7 +207,7 @@ function ua_webtide_print_loop() {
 	// Run an action before the loop
 	do_action( 'ua_webtide_before_the_loop' );
 	
-	if ( IS_WEBTIDE_MEMBERS_ONLY_PAGE ) {
+	if ( IS_WEBTIDE_MEMBERS_ONLY_PAGE || is_page( 'resources' ) || is_singular( 'resources' ) ) {
 		print_ua_webtide_breadcrumbs( array( 'container_id' => 'ua-webtide-breadcrumbs' ) );
 	}
 	
